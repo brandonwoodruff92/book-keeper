@@ -184,4 +184,3 @@ Result
   gender: 'male'
 }
 ```
-
