@@ -234,9 +234,9 @@ Result
 ```ruby
 class Cat < SQLObject
   belongs_to :owner,
-  foreign_key: :ownerId,
-  primary_key: :id,
-  class_name: "Person"
+    foreign_key: :ownerId,
+    primary_key: :id,
+    class_name: "Person"
 end
 
 oscar = Cat.find(1);
