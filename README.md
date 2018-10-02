@@ -45,18 +45,22 @@ Result
 
 ```ruby
 {
+  id: 1,
   name: 'Tim',
   gender: 'female'
 },
 {
+  id: 2,
   name: 'Mary',
   gender: 'female'
 },
 {
+  id: 3,
   name: 'Molly',
   gender: 'female'
 },
 {
+  id: 4,
   name: 'John',
   gender: 'male'
 }
@@ -172,15 +176,79 @@ Result
 
 ```ruby
 {
+  id: 1,
   name: 'Tim',
   gender: 'male'
 },
 {
+  id: 4,
   name: 'John',
   gender: 'male'
 },
 {
+  id: 5,
   name: 'Mike',
   gender: 'male'
+}
+```
+
+### ::has_many
+
+`::has_many` allows you to define a 'has-many' relationship between 2 SQLObjects. 
+
+```ruby
+class Person < SQLObject
+  has_many :cats,
+    foreign_key: :ownerId,
+    primary_key: :id,
+    class_name: "Cat"
+end 
+
+tim = Person.find(1)
+tim.cats
+```
+
+Result
+
+```ruby
+{
+  id: 1,
+  ownerId: 1,
+  name: "Oscar",
+  color: "black",
+  gender: "male"
+},
+{
+  id: 2,
+  ownderId: 1,
+  name: "Misty",
+  color: "white",
+  gender: "female"
+}
+```
+
+### ::belongs_to
+
+`::belongs_to` allows you to define a 'has-many' relationship between 2 SQLObjects.
+
+```ruby
+class Cat < SQLObject
+  belongs_to :owner,
+  foreign_key: :ownerId,
+  primary_key: :id,
+  class_name: "Person"
+end
+
+oscar = Cat.find(1);
+oscar.owner
+```
+
+Result
+
+```ruby
+{
+  id: 1,
+  name: "Oscar",
+  gender: "male"
 }
 ```
