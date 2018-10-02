@@ -7,8 +7,8 @@ Book Keeper is a light-weight Ruby ORM modelled after Ruby on Rails' ActiveRecor
 ### Databases
 
 #### Cats
-|id|owner_id|name|color|gender|
-|--|----|-----|------|
+|id|ownerId|name|color|gender|
+|--|--------|----|-----|------|
 |1|1|Oscar|black|male|
 |2|1|Misty|white|female|
 |3|3|Sparkles|orange|male|
